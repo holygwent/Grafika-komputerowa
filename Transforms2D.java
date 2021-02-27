@@ -21,7 +21,7 @@ public class Transforms2D extends JPanel {
 			}
 			if(whichTransform ==1)
 			{
-				
+				g2.scale(0.5,0.5);
 			}
 			if(whichTransform ==2)
 			{
