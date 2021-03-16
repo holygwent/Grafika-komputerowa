@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+viewBox="0 0 2000 1000"
+preserveAspectRatio="xMidYMid">
+<!-- The scene description goes here! -->
+<!--transform="translate(x,y) "do przemieszczania-->
+<!--transform="scale(x,y) "zmiana rozmiaru wszystkisz punkow w polygonie-->
+<!--transform="rotate( o ile wedlug punkta,px,py) "zmiana rozmiaru wszystkisz punkow w polygonie-->
+<!--trojkaty-->
+<defs>
+<g id = "Trojkat">
+<polygon points="500,500  400,1000  600,1000"
+ />
+</g>
+</defs>
+<!--prostokaty   -->
+<defs>
+<g id = "prostokat">
+<rect  x="1000" y="600" width="600" height="25" fill="red" transform=" rotate(10,1300,613.5)" />
+</g>
+</defs>
+<!--dziesieciobok-->
+<defs>
+<g id="dziesieciobok">
+ <animateTransform attributeName="transform" attributeType="XML"
+                        type="rotate" from="0,500,500" to="360,500,500" dur="10s" 
+                        fill="remove" repeatCount="indefinite"/>
+<polygon points="650,500 621,588 546,642 453,642 378,588 350,500 378,411 453,357 546,357 621,411" fill="white" stroke="black" stroke-width="1" />
+<line x1="650" y1="500" x2="500" y2="500" stroke-width="1" stroke="black"/>
+<line x1="621" y1="588" x2="500" y2="500" stroke-width="1" stroke="black"/>
+<line x1="546" y1="642" x2="500" y2="500" stroke-width="1" stroke="black"/>
+<line x1="453" y1="642" x2="500" y2="500" stroke-width="1" stroke="black"/>
+<line x1="378" y1="588" x2="500" y2="500" stroke-width="1" stroke="black"/>
+<line x1="350" y1="500" x2="500" y2="500" stroke-width="1" stroke="black"/>
+<line x1="378" y1="411" x2="500" y2="500" stroke-width="1" stroke="black"/>
+<line x1="453" y1="357" x2="500" y2="500" stroke-width="1" stroke="black"/>
+<line x1="546" y1="357" x2="500" y2="500" stroke-width="1" stroke="black"/>
+<line x1="621" y1="411" x2="500" y2="500" stroke-width="1" stroke="black"/>
+
+</g>
+</defs>
+<!--obramowanie-->
+<g id="ramka">
+<rect x="0" y="0" width="2000" height="1000" stroke="black" stroke-width="1" fill="none" />
+</g>
+
+
+
+<!--!!!!!!!!!!!!!!!!!scena!!!!!!!!!!!!!!!!!!!!!!!-->
+<!--dziesieciobok-->
+<use xlink:href = "#dziesieciobok"  transform="translate(790,150) " /> 
+<use xlink:href = "#dziesieciobok"  transform="translate(210,50) " /> 
+<use xlink:href = "#dziesieciobok"  transform="translate(230,-130) scale(0.8,0.8) " /> 
+<use xlink:href = "#dziesieciobok"  transform="translate(-233,-210) scale(0.8,0.8) " /> 
+<use xlink:href = "#dziesieciobok"  transform="translate(1125,-130) scale(0.6,0.6) " /> 
+<use xlink:href = "#dziesieciobok"  transform="translate(1470,-70) scale(0.6,0.6) " /> 
+
+
+<!--kwadraty-->
+<use xlink:href = "#prostokat"  transform="translate(-300,-13.5) " /> 
+<use xlink:href = "#prostokat"  transform="translate(-640,-260) scale(0.8,0.8) " /> 
+<use xlink:href = "#prostokat"  transform="translate(820,-167.5) scale(0.6,0.6) " /> 
+<!--Trojkat -->
+ <use xlink:href = "#Trojkat" fill="blue" transform="translate(600,200), scale(0.8,0.8)" /> 
+ <use xlink:href = "#Trojkat" fill="rgb(128,0,128)" transform="translate(100,-70), scale(0.6,0.6)" /> 
+ <use xlink:href = "#Trojkat" fill="rgb(0,128,0)" transform="translate(1400,0), scale(0.4,0.4)" /> 
+ 
+
+
+
+
+
+
+
+
+</svg>
