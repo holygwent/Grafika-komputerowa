@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>CS 424 Lab 9</title>
+<script src="build/three.js"></script>
+<script src="resources/OrbitControls.js"></script>
+<script>
+
+"use strict";
+
+var canvas, renderer, scene, camera; // Standard three.js requirements.
+
+var controls;  // An OrbitControls object that is used to implement
+               // rotation of the scene using the mouse.  (It actually rotates
+               // the camera around the scene.)
+
+var animating = false;  // Set to true when an animation is in progress.
+var frameNumber = 0;  // Frame number is advanced by 1 for each frame while animating.
+
+var tempObject;  // A temporary animated object.  DELETE IT.
+
+
+/**
+ *  The render function draws the scene.
+ */
+function render() {
+    renderer.render(scene, camera);
+}
+
+
+/**
+ * This function is called by the init() method to create the world. 
+ */
+function createWorld() {
+    
+    renderer.setClearColor("black"); // Background color for scene.
+    scene = new THREE.Scene();
+    
+    // ------------------- Make a camera with viewpoint light ----------------------
+    
+    camera = new THREE.PerspectiveCamera(30, canvas.width/canvas.height, 0.1, 100);
+    camera.position.z = 60;
+    var light;  // A light shining from the direction of the camera; moves with the camera.
+    light = new THREE.DirectionalLight();
+    light.position.set(0,0,1);
+    camera.add(light);
+    scene.add(camera);
+    
+    //------------------- Create the scene's visible objects ----------------------
+    
+    
+	
+	
+	
+	
+    
+} // end function createWorld()
+
+
+/**
+ *  This function is called once for each frame of the animation, before
+ *  the render() function is called for that frame.  It updates any
+ *  animated properties.  The value of the global variable frameNumber
+ *  is incrementd 1 before this function is called.
+ */
+function updateForFrame() {
+    
+  var base1;
+         base1 = new THREE.Mesh(
+                    new THREE.CylinderGeometry(6.9,7,1,128,1),
+                    new THREE.MeshPhongMaterial(
+                    {
+                        color:0xFFFFFF,
+                        specular: 0x000000,
+                        shininess: 16,
+                        shading: THREE.FlatShading
+                    }));
+
+         base1.position.x=0;
+         base1.position.z=0;
+         base1.position.y=-9.5;
+         scene.add(base1);
+
+         var base2;
+         base2 = new THREE.Mesh(
+                    new THREE.CylinderGeometry(7.1,7.2,1,128,1),
+                    new THREE.MeshPhongMaterial(
+                    {
+                        color:0xFFFFFF,
+                        specular: 0x000000,
+                        shininess: 16,
+                        shading: THREE.FlatShading
+                    }));
+
+         base2.position.x=0;
+         base2.position.z=0;
+         base2.position.y=-10;
+         scene.add(base2);
+		 
+		   var base3;
+         base3 = new THREE.Mesh(
+                    new THREE.CylinderGeometry(7.3,7.4,0.5,128,1),
+                    new THREE.MeshPhongMaterial(
+                    {
+                        color:0xFFFFFF,
+                        specular: 0x000000,
+                        shininess: 16,
+                        shading: THREE.FlatShading
+                    }));
+
+         base3.position.x=0;
+         base3.position.z=0;
+         base3.position.y=-10.5;
+         scene.add(base3);
+
+         var collar1;
+         collar1 = new THREE.Mesh(
+                   new THREE.CylinderGeometry(4,4,0.5,128,1),
+                   new THREE.MeshPhongMaterial(
+                   {
+                       color:0xFFFFFF,
+                       specular: 0x000000,
+                       shininess: 16,
+                       shading: THREE.FlatShading
+                   }));
+
+        collar1.position.x=0;
+        collar1.position.z=0;
+        collar1.position.y=6.5;
+        scene.add(collar1);
+		
+		 var collar2;
+         collar2 = new THREE.Mesh(
+                   new THREE.CylinderGeometry(4.3,4.3,0.5,128,1),
+                   new THREE.MeshPhongMaterial(
+                   {
+                       color:0xFFFFFF,
+                       specular: 0x000000,
+                       shininess: 16,
+                       shading: THREE.FlatShading
+                   }));
+
+        collar2.position.x=0;
+        collar2.position.z=0;
+        collar2.position.y=6;
+        scene.add(collar2);
+		
+		var collar3;
+         collar3 = new THREE.Mesh(
+                   new THREE.CylinderGeometry(4.6,4.6,0.5,128,1),
+                   new THREE.MeshPhongMaterial(
+                   {
+                       color:0xFFFFFF,
+                       specular: 0x000000,
+                       shininess: 16,
+                       shading: THREE.FlatShading
+                   }));
+
+        collar3.position.x=0;
+        collar3.position.z=0;
+        collar3.position.y=5.5;
+        scene.add(collar3);
+		
+		var TopCollar1;
+         TopCollar1 = new THREE.Mesh(
+                   new THREE.CylinderGeometry(3.3,3.3,0.75,128,1),
+                   new THREE.MeshPhongMaterial(
+                   {
+                       color:0xFFFFFF,
+                       specular: 0x000000,
+                       shininess: 16,
+                       shading: THREE.FlatShading
+                   }));
+
+        TopCollar1.position.x=0;
+        TopCollar1.position.z=0;
+        TopCollar1.position.y=11.2;
+        scene.add(TopCollar1);
+		
+		var TopCollar2;
+         TopCollar2 = new THREE.Mesh(
+                   new THREE.CylinderGeometry(2.8,2.8,0.5,128,1),
+                   new THREE.MeshPhongMaterial(
+                   {
+                       color:0xFFFFFF,
+                       specular: 0x000000,
+                       shininess: 16,
+                       shading: THREE.FlatShading
+                   }));
+
+        TopCollar2.position.x=0;
+        TopCollar2.position.z=0;
+        TopCollar2.position.y=11.7;
+        scene.add(TopCollar2);
+		
+	
+	var crossBox1;
+		crossBox1= new THREE.Mesh(
+		new THREE.BoxGeometry( 0.75, 3, 0.75 ),
+		  new THREE.MeshPhongMaterial(
+                   {
+                       color:0xFFFFFF,
+                       specular: 0x000000,
+                       shininess: 16,
+                       shading: THREE.FlatShading
+                   }));
+		crossBox1.position.x=0;
+        crossBox1.position.z=0;
+        crossBox1.position.y=13.1;
+		crossBox1.rotation.x=1;
+        scene.add(crossBox1);	
+		
+var crossBox2;
+		crossBox2= new THREE.Mesh(
+		new THREE.BoxGeometry( 0.75, 3, 0.75 ),
+		  new THREE.MeshPhongMaterial(
+                   {
+                       color:0xFFFFFF,
+                       specular: 0x000000,
+                       shininess: 16,
+                       shading: THREE.FlatShading
+                   }));
+		crossBox2.position.x=0;
+        crossBox2.position.z=0;
+        crossBox2.position.y=13.1;
+		crossBox2.rotation.x=-1;
+        scene.add(crossBox2);			
+		
+        var sphere;
+         sphere = new THREE.Mesh(
+                   new THREE.SphereGeometry(3,64,64),
+                   new THREE.MeshPhongMaterial(
+                   {
+                       color:0xFFFFFF,
+                       specular: 0x000000,
+                       shininess: 16,
+                       shading: THREE.FlatShading
+                   }));
+
+        sphere.position.x=0;
+        sphere.position.z=0;
+        sphere.position.y=8.5;
+        scene.add(sphere);
+
+	
+         //------------------------------------
+         var height=0.2;
+         var step=1;
+         var tempCore;
+         var i;
+         var prevRadius=6.7;
+         for(i=1;i<=100;i++)
+         {
+
+           tempCore = new THREE.Mesh(
+                      new THREE.CylinderGeometry(prevRadius-(step/(i)),prevRadius,height,128,1),
+                      new THREE.MeshPhongMaterial(
+                      {
+                          color:0xFFFFFF,
+                          specular: 0x000000,
+                          shininess: 16,
+                          shading: THREE.FlatShading
+                      }));
+
+           tempCore.position.x=0;
+           tempCore.position.z=0;
+           tempCore.position.y=-9+(i-1)*(height);
+           scene.add(tempCore);
+           prevRadius= prevRadius-(step/i);
+         }
+
+    
+}
+
+
+/* ---------------------------- MOUSE AND ANIMATION SUPPORT ------------------
+
+/**
+ *  This page uses THREE.OrbitControls to let the user use the mouse to rotate
+ *  the view.  OrbitControls are designed to be used during an animation, where
+ *  the rotation is updated as part of preparing for the next frame.  The scene
+ *  is not automatically updated just because the user drags the mouse.  To get
+ *  the rotation to work without animation, I add another mouse listener to the
+ *  canvas, just to call the render() function when the user drags the mouse.
+ *  The same thing holds for touch events -- I call render for any mouse move
+ *  event with one touch.
+ */
+function installOrbitControls() {
+    controls = new THREE.OrbitControls(camera,canvas);
+    controls.noPan = true; 
+    controls.noZoom = true;
+    controls.staticMoving = true;
+    function move() {
+        controls.update();
+        if (! animating) {
+            render();
+        }
+    }
+    function down() {
+        document.addEventListener("mousemove", move, false);
+    }
+    function up() {
+        document.removeEventListener("mousemove", move, false);
+    }
+    function touch(event) {
+        if (event.touches.length == 1) {
+            move();
+        }
+    }
+    canvas.addEventListener("mousedown", down, false);
+    canvas.addEventListener("touchmove", touch, false);
+}
+
+/*  Called when user changes setting of the Animate checkbox. */
+function doAnimateCheckbox() {
+   var run = document.getElementById("animateCheckbox").checked;
+   if (run != animating) {
+       animating = run;
+       if (animating) {
+           requestAnimationFrame(doFrame);
+       }
+   }
+}
+
+/*  Drives the animation, called by system through requestAnimationFrame() */
+function doFrame() {
+    if (animating) {
+        frameNumber++;
+        updateForFrame();
+        render();
+        requestAnimationFrame(doFrame);
+    }
+}
+
+/*----------------------------- INITIALIZATION ----------------------------------------
+
+/**
+ *  This function is called by the onload event so it will run after the
+ *  page has loaded.  It creates the renderer, canvas, and scene objects,
+ *  calls createWorld() to add objects to the scene, and renders the
+ *  initial view of the scene.  If an error occurs, it is reported.
+ */
+function init() {
+    try {
+        canvas = document.getElementById("glcanvas");
+        renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            antialias: true,
+            alpha: false
+        });
+    }
+    catch (e) {
+        document.getElementById("message").innerHTML="<b>Sorry, an error occurred:<br>" +
+                e + "</b>";
+        return;
+    }
+    document.getElementById("animateCheckbox").checked = false;
+    document.getElementById("animateCheckbox").onchange = doAnimateCheckbox;
+    createWorld();
+    installOrbitControls();
+    render();
+}
+
+</script>
+</head>
+<body onload="init()">
+
+<h2>Three.js Modeling Demo: Merry-Go-Round</h2>
+
+<noscript>
+   <p style="color: #AA0000; font-weight: bold">Sorry, but this page requires JavaScript!</p>
+</noscript>
+
+<p style="color:#AA0000; font-weight: bold" id="message">
+</p>
+
+<p>
+   <label><input type="checkbox" id="animateCheckbox"><b>Animate</b></label>
+   <b style="margin-left:50px">Use the mouse to rotate the model.</b>
+</p>
+
+<div id="canvas-holder" style="float:left; border: thin solid black; background-color: white">
+   <canvas width=1200 height=600 id="glcanvas"></canvas>
+</div>
+
+</body>
+</html>
